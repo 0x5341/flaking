@@ -1,5 +1,5 @@
 {
-  description = "gop";
+  description = "go template";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
@@ -7,7 +7,7 @@
   };
 
   outputs = { nixpkgs, utils, ... }:
-    utils.lib.eachDefaultSystem (system:
+    utils.lib.eachSystem utils.lib.allSystems (system:
     let
       pkgs = nixpkgs.legacyPackages.${system};
       ci-pkgs = with pkgs; [ go golangci-lint gotests ];
