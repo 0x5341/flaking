@@ -11,6 +11,10 @@
         path = ./go;
         description = "Go Environment for spacemacs";
       };
+      rust = {
+        path = ./rust;
+        description = "Rust Environment";
+      };
     };
   };
 }
