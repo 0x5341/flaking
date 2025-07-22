@@ -11,7 +11,7 @@
   };
 
   outputs =
-    { nixpkgs, utils, fenix }:
+    { nixpkgs, utils, fenix, ... }:
     utils.lib.eachSystem utils.lib.allSystems (
       system:
       let
@@ -24,10 +24,11 @@
         devShells = rec {
           dev = pkgs.mkShell {
             packages = with pkgs; [
-              (fenix.fromToolchainFile {
+              (fenix.packages.${system}.fromToolchainFile {
                 file = ./rust-toolchain.toml;
                 sha256 = lib.fakeSha256;
               })
+              rust-analyzer
             ];
           };
           default = dev;
