@@ -15,6 +15,10 @@
         path = ./rust;
         description = "Rust Environment";
       };
+      cpp = {
+        path = ./cpp;
+        description = "C++ Environment with clang, cmake, ninja";
+      };
     };
   };
 }
