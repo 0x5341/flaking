@@ -10,7 +10,7 @@
     utils.lib.eachSystem utils.lib.allSystems (system:
     let
       pkgs = nixpkgs.legacyPackages.${system};
-      ci-pkgs = with pkgs; [ go golangci-lint gotests ];
+      ci-pkgs = with pkgs; [ go golangci-lint gotests go-tools ];
       godoctor = pkgs.buildGoModule (final: {
         name = "godoctor";
         src = pkgs.fetchFromGitHub {
