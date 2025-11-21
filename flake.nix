@@ -19,6 +19,10 @@
         path = ./cpp;
         description = "C++ Environment with clang, cmake, ninja";
       };
+      nim = {
+        path = ./nim;
+        description = "Nim Environment with clang";
+      };
     };
   };
 }
