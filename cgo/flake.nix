@@ -44,8 +44,9 @@
                 zig
               ]
               ++ [ godoctor ];
-              CC = "zig cc";
-              CXX = "zig c++";
+            CC = "zig cc";
+            CXX = "zig c++";
+            CGO_ENABLED = "1";
           };
           default = dev;
         };

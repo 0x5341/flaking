@@ -11,7 +11,12 @@
   };
 
   outputs =
-    { nixpkgs, utils, fenix, ... }:
+    {
+      nixpkgs,
+      utils,
+      fenix,
+      ...
+    }:
     utils.lib.eachSystem utils.lib.allSystems (
       system:
       let

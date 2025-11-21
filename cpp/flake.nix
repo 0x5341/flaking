@@ -6,21 +6,25 @@
     utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { nixpkgs, utils, ... }:
-   utils.lib.eachSystem utils.lib.allSystems (system:
-   let
-     pkgs = nixpkgs.legacyPackages.${system};
-   in {
-     devShells = rec {
-       dev = pkgs.mkShell {
-         packages = with pkgs; [
-          llvmPackages_21.libcxxClang
-          llvmPackages_21.clang-tools
-          cmake
-          ninja
-         ];
-       };
-       default = dev;
-     };
-   });
+  outputs =
+    { nixpkgs, utils, ... }:
+    utils.lib.eachSystem utils.lib.allSystems (
+      system:
+      let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in
+      {
+        devShells = rec {
+          dev = pkgs.mkShell {
+            packages = with pkgs; [
+              llvmPackages_21.libcxxClang
+              llvmPackages_21.clang-tools
+              cmake
+              ninja
+            ];
+          };
+          default = dev;
+        };
+      }
+    );
 }

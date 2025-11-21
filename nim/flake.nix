@@ -17,7 +17,8 @@
         devShells = rec {
           dev = pkgs.mkShell {
             packages = with pkgs; [
-              nim nimble
+              nim
+              nimble
               zig # for zig cc/c++
             ];
           };
